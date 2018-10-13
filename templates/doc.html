@@ -1,0 +1,46 @@
+{{define "root"}}
+	<html>
+		<head>
+			<title>{{.Doc.Title}} - Sourcegraph</title>
+			<link rel="stylesheet" type="text/css" href="{{asset "layout.css"}}" />
+			<link rel="stylesheet" type="text/css" href="{{asset "content.css"}}" />
+		</head>
+		<body>
+			<header id="header">
+				<div class="container">
+					<a href="/" id="logo"><img src="{{asset "sourcegraph-logo.svg"}}" /> Documentation</a>
+					<nav>
+						<a href="https://github.com/sourcegraph/sourcegraph">Code</a>
+						<a href="https://about.sourcegraph.com">About</a>
+						<a href="https://sourcegraph.com">Sourcegraph.com</a>
+						</nav>
+				</div>
+			</header>
+			<div id="content" class="backdrop">
+				<nav class="index">
+					<ul>{{template "doc_nav" (or (and (eq (len .Doc.Tree) 1) (index .Doc.Tree 0).Children) .Doc.Tree)}}</ul>
+				</nav>
+				<section class="body markdown-body">
+					<nav class="breadcrumbs">
+					{{range .Breadcrumbs}}
+						<a href="{{.URL}}" class="{{if .IsActive}}active{{end}}">{{.Label}}</a> {{if not .IsActive}}/{{end}}
+					{{end}}
+					</nav>
+					{{markdown .}}
+				</section>
+			</div>
+		</body>
+	</html>
+{{end}}
+
+{{define "doc_nav"}}
+	{{range .}}
+		<li>
+			<a href="{{.URL}}">{{.Title}}</a>
+			{{with .Children}}
+				<ul>
+					{{template "doc_nav" .}}
+				</ul>
+			{{end}}
+	{{end}}
+{{end}}
