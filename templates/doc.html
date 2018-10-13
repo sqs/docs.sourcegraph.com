@@ -16,18 +16,25 @@
 						</nav>
 				</div>
 			</header>
-			<div id="content" class="backdrop">
-				<nav class="index">
-					<ul>{{template "doc_nav" (or (and (eq (len .Doc.Tree) 1) (index .Doc.Tree 0).Children) .Doc.Tree)}}</ul>
-				</nav>
-				<section class="body markdown-body">
-					<nav class="breadcrumbs">
-					{{range .Breadcrumbs}}
-						<a href="{{.URL}}" class="{{if .IsActive}}active{{end}}">{{.Label}}</a> {{if not .IsActive}}/{{end}}
-					{{end}}
+			<div id="page">
+				<div class="container">
+					<nav id="index">
+						{{with (or (and (eq (len .Doc.Tree) 1) (index .Doc.Tree 0).Children) .Doc.Tree)}}
+							<h4 class="label">On this page:</h4>
+							<h4 class="title">{{$.Doc.Title}}</h4>
+							<ul>{{template "doc_nav" .}}</ul>
+						{{end}}
+						<a class="edit-btn" href="https://github.com/sourcegraph/sourcegraph/edit/master/doc/{{.FilePath}}">Edit this page</a>
 					</nav>
-					{{markdown .}}
-				</section>
+					<section id="content" class="markdown-body">
+						<nav class="breadcrumbs">
+							{{range .Breadcrumbs}}
+								<a href="{{.URL}}" class="{{if .IsActive}}active{{end}}">{{.Label}}</a> {{if not .IsActive}}/{{end}}
+							{{end}}
+						</nav>
+						{{markdown .}}
+					</section>
+				</div>
 			</div>
 		</body>
 	</html>
