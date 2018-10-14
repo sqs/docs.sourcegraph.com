@@ -125,12 +125,11 @@ a:hover {
 #index > h4 {
 	opacity: 0.8;
 	font-weight: normal;
-	border-bottom: solid 1px var(--index-border-color);
 	margin-bottom: 0;
-	padding-bottom: calc(0.125*var(--spacing));
+	padding-bottom: 0;
 }
 #index > ul {
-	margin-top: calc(0.5*var(--spacing));
+	margin-top: 0.125rem;
 	padding-left: var(--spacing);
 }
 #index > ul ul {
@@ -160,9 +159,11 @@ a:hover {
 
 /* EDIT BUTTON */
 .edit-btn {
-	display: block;
+	display: inline-block;
+	font-size: 90%;
 	color: inherit;
-	border-top: solid 1px var(--index-border-color);
+	border: solid 1px var(--index-border-color);
+	border-radius: 0.25rem;
 	margin-top: calc(var(--spacing));
-	padding-top: calc(var(--spacing));
+	padding: 0.2rem 0.4rem 0.1rem;
 }
