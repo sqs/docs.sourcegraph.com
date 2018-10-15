@@ -140,7 +140,7 @@ a:hover {
 }
 #index > ul li::before {
 	margin-left: -0.8rem;
-	content: "›\00a0";
+	content: "\203A\00a0";
 }
 
 /* CONTENT */
