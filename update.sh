@@ -3,4 +3,4 @@
 set -eu -o pipefail
 
 docsite -assets assets -sources ../sourcegraph/doc -templates templates gen -out out
-gsutil cp -a public-read -j html,css,js -z html,css,js -r out gs://docs.sourcegraph.com
+cd out && gsutil -m cp -a public-read -z html,css,js -r . gs://docs.sourcegraph.com

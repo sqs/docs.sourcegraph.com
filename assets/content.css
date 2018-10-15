@@ -429,6 +429,30 @@
   margin-bottom: 0;
 }
 
+.markdown-body aside {
+	padding: 0.65em 0.9em 0.55em;
+	margin-bottom: 1em;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 3px;
+}
+.markdown-body aside>:first-child {
+	margin-top: 0;
+}
+.markdown-body aside>:last-child {
+	margin-bottom: 0;
+}
+.markdown-body aside.note {
+	border-color: #bce8f1;
+	background-color: #d9edf7;
+	color: #26607c;
+}
+.markdown-body aside.warning {
+	border-color: #faebcc;
+	background-color: #fcf8e3;
+	color: #70572b;
+}
+
 .markdown-body kbd {
   display: inline-block;
   padding: 3px 5px;
@@ -645,3 +669,4 @@
 .markdown-body hr {
   border-bottom-color: #eee;
 }
+

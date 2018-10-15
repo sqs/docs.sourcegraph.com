@@ -4,11 +4,12 @@
 			<title>{{.Doc.Title}} - Sourcegraph</title>
 			<link rel="stylesheet" type="text/css" href="{{asset "layout.css"}}" />
 			<link rel="stylesheet" type="text/css" href="{{asset "content.css"}}" />
+			<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		</head>
 		<body>
 			<header id="header">
 				<div class="container">
-					<a href="/" id="logo"><img src="{{asset "sourcegraph-logo.svg"}}" /> Documentation</a>
+					<a href="/" id="logo"><img src="{{asset "sourcegraph-logo.svg"}}" /> <span aria-hidden="true" class="visible-sm">Docs</span> <span class="visible-lg">Documentation</span></a>
 					<nav>
 						<a href="https://github.com/sourcegraph/sourcegraph">Code</a>
 						<a href="https://about.sourcegraph.com">About</a>
